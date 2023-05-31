@@ -3,7 +3,7 @@ import { View } from "react-native";
 import { Button, Text } from "react-native-elements";
 import { useTheme } from "../../../hooks";
 
-export const AuthScreen = () => {
+export const AuthScreen = (props) => {
   const { toggleTheme } = useTheme();
   return (
     <View>
