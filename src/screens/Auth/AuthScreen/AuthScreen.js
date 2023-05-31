@@ -25,7 +25,7 @@ export const AuthScreen = (props) => {
         <Text style={styles.info}>Crea un perfil, sigue otras cuentas, sube tus propios videos y más.</Text>
         <TouchableOpacity onPress={goToRegisterEmail} style={styles.itemRegister}>
           <Icon type="material-community" name="at" />
-          <Text>User correo electronico</Text>
+          <Text>Usar correo electronico</Text>
           <View />
         </TouchableOpacity>
       </View>
