@@ -10,6 +10,7 @@ async function saveTokens(access, refresh) {
 async function getTokens() {
   const access = await AsyncStorage.getItem(ENV.JWT.ACCESS);
   const refresh = await AsyncStorage.getItem(ENV.JWT.REFRESH);
+
   return {
     access,
     refresh,
@@ -23,9 +24,11 @@ async function removeTokens() {
 
 function hasExpired(token) {
   if (!token) return false;
+
   const { exp } = jwtDecode(token);
   const currentDate = new Date().getTime();
-  const expiredDate = new Date(exp * 100).getTime();
+  const expiredDate = new Date(exp * 1000).getTime();
+
   if (currentDate > expiredDate) {
     return true;
   }

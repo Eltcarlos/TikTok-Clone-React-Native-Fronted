@@ -21,15 +21,20 @@ export function AuthProvider({ children }) {
     (async () => {
       const response = await jwt.getTokens();
       const accessExpired = jwt.hasExpired(response.access);
+
       if (accessExpired) {
         const refreshExpired = jwt.hasExpired(response.refresh);
+
         if (refreshExpired) {
           logout();
         } else {
           try {
             const result = await authController.refershToken(response.refresh);
             jwt.saveTokens(result.access, response.refresh);
-            login({ access: result.access, refresh: response.refresh });
+            login({
+              access: result.access,
+              refresh: response.refresh,
+            });
           } catch (error) {
             console.error(error);
             logout();

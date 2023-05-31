@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, TouchableOpacity, View } from "react-native";
 import { Button, Icon, Text } from "react-native-elements";
-import { useTheme } from "../../../hooks";
+import { useAuth, useTheme } from "../../../hooks";
 import { styled } from "./AuthScreen.styles";
 import { screen } from "../../../utils";
 
