@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FlatList, Dimensions, View } from "react-native";
+import { FlatList, Dimensions } from "react-native";
 import { Video } from "../../api";
 import { useAuth } from "../../hooks";
 import { ENV } from "../../utils";
