@@ -27,7 +27,7 @@ export const ENV = {
     FOLLOWING: "following",
     FOR_YOU: "forYou",
   },
-  TAB_MENU_HEIGHT: 70,
+  TAB_MENU_HEIGHT: 110,
   TYPE_NOTIFICATION: {
     SHARED: "SHARED",
     LIKE: "LIKE",

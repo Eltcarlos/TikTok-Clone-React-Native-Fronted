@@ -5,7 +5,7 @@ import { useAuth } from "../../hooks";
 import { ENV } from "../../utils";
 import { VideoFeed } from "../Shared";
 
-const { height } = Dimensions.get("window");
+const { height } = Dimensions.get("screen");
 const videoController = new Video();
 
 export const ForYouVideos = () => {
