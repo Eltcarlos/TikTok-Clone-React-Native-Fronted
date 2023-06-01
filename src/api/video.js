@@ -34,4 +34,19 @@ export class Video {
     if (response.status !== 201) throw result;
     return result;
   }
+  async getAllVideos(token) {
+    const url = `${ENV.BASE_API}/${ENV.API_ROUTES.VIDEO}/`;
+    const params = {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    const response = await fetch(url, params);
+    const result = await response.json();
+
+    if (response.status !== 200) throw result;
+    return result;
+  }
 }

@@ -13,4 +13,9 @@ export const ENV = {
     ACCESS: "access",
     REFRESH: "refresh",
   },
+  TYPE_VIDEO: {
+    FOLLOWING: "following",
+    FOR_YOU: "forYou",
+  },
+  TAB_MENU_HEIGHT: 70,
 };
