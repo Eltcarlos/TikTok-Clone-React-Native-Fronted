@@ -2,7 +2,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import { screen } from "../../utils";
 import { UploadScreen } from "../../screens/Upload/UploadScreen";
-import { PublishVideoScreen } from "../../screens/Upload/PublishVideoScreen";
+import { PublishVideoScreen } from "../../screens/Upload/PublishVideoScreen/PublishVideoScreen";
 
 const Stack = createNativeStackNavigator();
 
