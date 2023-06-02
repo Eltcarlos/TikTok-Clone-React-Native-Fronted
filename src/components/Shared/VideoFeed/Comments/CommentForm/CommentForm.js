@@ -2,11 +2,13 @@ import React, { useState, useEffect } from "react";
 import { View, Platform, Keyboard } from "react-native";
 import { Input } from "react-native-elements";
 import { size } from "lodash";
-import { Comment } from "../../../../../api";
+import { Comment, Notification } from "../../../../../api";
 import { useAuth } from "../../../../../hooks";
 import { styled } from "./CommentForm.styles";
+import { ENV } from "../../../../../utils";
 
 const commentController = new Comment();
+const notification = new Notification();
 
 export function CommentForm(props) {
   const { idTargetUser, idVideo, onReloadComments } = props;
@@ -34,6 +36,14 @@ export function CommentForm(props) {
     if (size(comment) > 0) {
       try {
         await commentController.create(accessToken, comment, auth.user_id, idVideo);
+        await notification.create({
+          token: accessToken,
+          idUserFollower: auth.user_id,
+          idTargetUser: idTargetUser,
+          idVideo: idVideo,
+          comment: comment,
+          typeNotification: ENV.TYPE_NOTIFICATION.COMMENT,
+        });
         setComment("");
         onReloadComments();
       } catch (error) {
