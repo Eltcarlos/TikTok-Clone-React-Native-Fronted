@@ -3,8 +3,11 @@ import { View, Pressable } from "react-native";
 import { Text } from "react-native-elements";
 import { useNavigation } from "@react-navigation/native";
 import { screen } from "../../../utils";
+import { Follow } from "../../../api";
 import { useAuth } from "../../../hooks";
 import { styles } from "./Follows.styles";
+
+const follow = new Follow();
 
 export function Follows(props) {
   const { idUser } = props;
@@ -12,6 +15,28 @@ export function Follows(props) {
   const [followersCount, setFollowersCount] = useState(0);
   const navigation = useNavigation();
   const { accessToken } = useAuth();
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await follow.getFollowedsCount(accessToken, idUser);
+        setFollowedsCount(response);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const response = await follow.getFollowersCount(accessToken, idUser);
+        setFollowersCount(response);
+      } catch (error) {
+        console.error(error);
+      }
+    })();
+  }, []);
 
   const openFolloweds = () => {
     navigation.navigate(screen.app.followeds, { idUser });

@@ -4,6 +4,7 @@ import { Settings } from "./Settings";
 import { Info } from "./Info";
 import { Videos } from "./Videos";
 import { VideosFavorites } from "./VideosFavorites";
+import { Social } from "./Social";
 
 export const Account = {
   Header,
@@ -12,4 +13,5 @@ export const Account = {
   Info,
   Videos,
   VideosFavorites,
+  Social,
 };
